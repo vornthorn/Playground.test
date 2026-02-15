@@ -9,6 +9,3 @@ __pycache__/
 
 # Keep folder structure
 !data/.gitkeep
-
-# Local virtual environment
-.venv/

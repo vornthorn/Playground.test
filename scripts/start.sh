@@ -16,7 +16,7 @@ python -m pip install --upgrade pip
 if [[ -f requirements.txt ]]; then
   pip install -r requirements.txt
 else
-  pip install python-dotenv openai rank-bm25 fastapi uvicorn
+  pip install python-dotenv openai rank-bm25
 fi
 
 mkdir -p memory/logs data
