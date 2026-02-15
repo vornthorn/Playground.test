@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jarvis Gateway</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #log { border: 1px solid #ddd; min-height: 260px; padding: 12px; white-space: pre-wrap; }
+    .row { margin-top: 10px; display: flex; gap: 8px; }
+    input[type=text] { flex: 1; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h2>Jarvis Gateway</h2>
+  <div id="log"></div>
+  <div class="row">
+    <input id="msg" type="text" placeholder="Ask Jarvis..." />
+    <label><input id="planOnly" type="checkbox" checked /> Plan only</label>
+    <button id="send">Send</button>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
