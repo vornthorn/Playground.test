@@ -163,26 +163,10 @@ def bm25_search(
 
     # Combine with entries and sort
     scored_entries = []
-    max_score_raw = float(max(scores)) if len(scores) > 0 else 0.0
-    max_score = max_score_raw if max_score_raw > 0 else 1
-
-    # rank_bm25 can return all-zero scores for tiny corpora (e.g., 1 doc).
-    # In that case, fall back to simple token-overlap scoring so keyword-only
-    # mode still returns obvious matches.
-    use_overlap_fallback = len(scores) > 0 and max_score_raw <= 0
+    max_score = max(scores) if scores and max(scores) > 0 else 1
 
     for entry, score in zip(entries, scores):
-        if use_overlap_fallback:
-            doc_tokens = set(tokenize(entry['content']))
-            overlap = len(doc_tokens.intersection(query_tokens))
-            if overlap > 0:
-                normalized_score = overlap / max(len(query_tokens), 1)
-                scored_entries.append({
-                    **entry,
-                    "bm25_score": round(normalized_score, 4),
-                    "bm25_raw": round(float(overlap), 4)
-                })
-        elif score > 0:
+        if score > 0:
             # Normalize score to 0-1
             normalized_score = score / max_score
             scored_entries.append({
