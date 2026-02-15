@@ -1,0 +1,14 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local sqlite/runtime artifacts
+*.db
+*.sqlite
+*.sqlite3
+
+# Keep folder structure
+!data/.gitkeep
+
+# Local virtual environment
+.venv/
